@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B1F3A">
+<title>ValueBridge Network | Start your profile</title>
+<style>
+:root{--navy:#0B1F3A;--gold:#C9A227;--bg:#F7F5EF;--ink:#14213A;--mut:#52607A;--line:#CFD5E0;--err:#B3261E}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:var(--navy);color:#fff;padding:18px 16px;border-bottom:4px solid var(--gold)}
+.hd{max-width:600px;margin:0 auto;display:flex;gap:14px;align-items:center}
+.logo{flex:none;width:54px;height:54px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;font:700 21px Georgia,serif;color:var(--gold)}
+.logo img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+header h1{margin:0;font:700 1.25rem/1.2 Georgia,"Times New Roman",serif}
+header p{margin:2px 0 0;font-size:.9rem;color:#C9D3E6}
+main{max-width:600px;margin:0 auto;padding:18px 16px 48px}
+.lead{margin:0 0 14px;color:var(--mut)}
+#bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+#bar i{display:block;height:100%;width:20%;background:var(--gold);transition:width .3s}
+#stp{margin:8px 0 14px;font-weight:600}
+fieldset{border:0;margin:0;padding:0}
+[hidden]{display:none!important}
+legend{font:700 1.4rem/1.25 Georgia,serif;margin-bottom:4px;padding:0}
+.hint{margin:0 0 16px;color:var(--mut);font-size:.95rem}
+.fld{margin-bottom:16px}
+label,.lb{display:block;font-weight:600;margin-bottom:6px}
+.opt{font-weight:400;color:var(--mut)}
+input[type=text],input[type=tel],input[type=email],input[type=url],select,textarea{width:100%;min-height:52px;padding:12px 14px;font:inherit;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:10px}
+textarea{min-height:92px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--gold);outline-offset:1px;border-color:var(--navy)}
+[aria-invalid=true]{border-color:var(--err)!important}
+.err{color:var(--err);font-size:.92rem;margin:6px 0 0;min-height:0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chk{display:flex;align-items:center;gap:10px;min-height:52px;padding:8px 12px;background:#fff;border:1.5px solid var(--line);border-radius:10px;font-weight:400;margin:0 0 8px;cursor:pointer}
+.chk input{width:22px;height:22px;flex:none;accent-color:var(--navy);margin:0}
+.chk:has(input:checked){border-color:var(--navy);background:#EEF2F9}
+.wide{grid-column:1/-1}
+.nav{display:flex;gap:10px;margin-top:22px}
+button,.btn{font:700 1.05rem system-ui,sans-serif;min-height:54px;padding:0 22px;border-radius:10px;border:0;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.go{flex:1;background:var(--gold);color:var(--navy)}
+.bk{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+button:disabled{opacity:.6}
+button:focus-visible,.btn:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+.box{background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:10px;padding:14px 16px}
+#fail{margin-top:14px;font-weight:600}
+#done h2{font:700 1.6rem/1.25 Georgia,serif;margin:0 0 8px}
+#done ul{padding-left:20px}
+.wa{background:#1F8F4E;color:#fff;margin:8px 0 14px;width:100%}
+footer{text-align:center;color:var(--mut);font-size:.9rem;padding:0 16px 28px}
+noscript{display:block;padding:16px;background:#fff3cd}
+</style>
+</head>
+<body>
+<header><div class="hd">
+<div class="logo" aria-hidden="true">VB</div><!-- To use your logo: replace VB with <img src="logo.png" alt=""> and upload logo.png beside this file -->
+<div><h1>ValueBridge Network</h1><p>Bridging student potential with professional opportunity</p></div>
+</div></header>
+<main>
+<noscript>This form needs JavaScript. Please open it in Chrome, Safari or another up-to-date browser.</noscript>
+<div id="top">
+<p class="lead">This takes about 5 minutes. Only Steps 1, 2, 3 and 5 are needed. Your answers are saved on your phone as you go.</p>
+<div id="bar" aria-hidden="true"><i></i></div>
+<p id="stp" aria-live="polite"></p>
+<form id="f" novalidate autocomplete="on">
+<div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+<fieldset data-s="1"><legend>About you</legend><p class="hint">So Emmanuel knows who to address and how to reach you.</p>
+<div class="fld"><label for="title">Title</label><select id="title" name="title"><option value="">Choose one</option><option>Mr</option><option>Miss</option><option>Mrs</option><option>Dr</option></select><p class="err" id="e-title" role="alert"></p></div>
+<div class="fld"><label for="name">Full name</label><input id="name" name="name" type="text" autocomplete="name" maxlength="100"><p class="err" id="e-name" role="alert"></p></div>
+<div class="fld"><label for="phone">WhatsApp number</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0241234567" maxlength="20"><p class="err" id="e-phone" role="alert"></p></div>
+<div class="fld"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" maxlength="100"><p class="err" id="e-email" role="alert"></p></div>
+<div class="fld"><label for="li">LinkedIn profile link <span class="opt">(optional)</span></label><input id="li" name="li" type="url" placeholder="linkedin.com/in/yourname" maxlength="150"><p class="err" id="e-li" role="alert"></p>
+<label class="chk" style="margin-top:8px"><input type="checkbox" name="noli" value="1" id="noli"> I don’t have a LinkedIn account yet</label></div>
+</fieldset>
+
+<fieldset data-s="2" hidden><legend>Your education</legend><p class="hint">No grades needed.</p>
+<div class="fld"><label for="inst">Institution</label><input id="inst" name="inst" type="text" list="insts" maxlength="100" placeholder="e.g. University of Cape Coast"><datalist id="insts"><option value="University of Cape Coast (UCC)"><option value="University of Ghana"><option value="KNUST"><option value="Cape Coast Technical University"></datalist><p class="err" id="e-inst" role="alert"></p></div>
+<div class="fld"><label for="prog">Programme of study</label><input id="prog" name="prog" type="text" maxlength="100" placeholder="e.g. BSc Economics"><p class="err" id="e-prog" role="alert"></p></div>
+<div class="fld"><label for="level">Level</label><select id="level" name="level"><option value="">Choose one</option><option>100</option><option>200</option><option>300</option><option>400</option><option>Graduate</option><option>Other</option></select><p class="err" id="e-level" role="alert"></p></div>
+</fieldset>
+
+<fieldset data-s="3" hidden><legend>Where do you want to go?</legend><p class="hint">Not sure yet? Write “Not sure yet”. That is a perfectly good answer.</p>
+<div class="fld"><span class="lb">Dream companies or organisations <span class="opt">(up to 3)</span></span>
+<input type="text" name="co1" aria-label="Dream company 1" maxlength="80" style="margin-bottom:8px"><input type="text" name="co2" aria-label="Dream company 2" maxlength="80" style="margin-bottom:8px"><input type="text" name="co3" aria-label="Dream company 3" maxlength="80"></div>
+<div class="fld"><span class="lb">Roles you would like <span class="opt">(up to 3)</span></span>
+<input type="text" name="ro1" aria-label="Preferred role 1" maxlength="80" style="margin-bottom:8px"><input type="text" name="ro2" aria-label="Preferred role 2" maxlength="80" style="margin-bottom:8px"><input type="text" name="ro3" aria-label="Preferred role 3" maxlength="80"></div>
+<div class="fld" id="opps"><span class="lb">What opportunities do you want? <span class="opt">(tick all that apply)</span></span>
+<div class="grid"><label class="chk"><input type="checkbox" name="opp" value="Internship"> Internship</label><label class="chk"><input type="checkbox" name="opp" value="Mentorship"> Mentorship</label><label class="chk"><input type="checkbox" name="opp" value="Volunteering"> Volunteering</label><label class="chk"><input type="checkbox" name="opp" value="Remote work"> Remote work</label><label class="chk"><input type="checkbox" name="opp" value="Scholarship"> Scholarship</label><label class="chk"><input type="checkbox" name="opp" value="Other"> Other</label></div>
+<p class="err" id="e-opp" role="alert"></p></div>
+</fieldset>
+
+<fieldset data-s="4" hidden><legend>A little more <span class="opt" style="font:400 1rem system-ui">(optional)</span></legend><p class="hint">You can skip this step. Emmanuel can ask for these later.</p>
+<div class="fld"><label for="lead">Leadership roles or student groups</label><textarea id="lead" name="lead" maxlength="400" placeholder="e.g. Class representative, Economics Association member"></textarea></div>
+<div class="fld"><span class="lb">Skills you have</span><div class="grid">
+<label class="chk"><input type="checkbox" name="sk" value="Communication"> Communication</label><label class="chk"><input type="checkbox" name="sk" value="Teamwork"> Teamwork</label><label class="chk"><input type="checkbox" name="sk" value="Leadership"> Leadership</label><label class="chk"><input type="checkbox" name="sk" value="Microsoft Office"> Microsoft Office</label><label class="chk"><input type="checkbox" name="sk" value="Excel"> Excel</label><label class="chk"><input type="checkbox" name="sk" value="Research"> Research</label><label class="chk"><input type="checkbox" name="sk" value="Writing"> Writing</label><label class="chk"><input type="checkbox" name="sk" value="Public speaking"> Public speaking</label><label class="chk"><input type="checkbox" name="sk" value="Customer service"> Customer service</label><label class="chk"><input type="checkbox" name="sk" value="Social media"> Social media</label><label class="chk"><input type="checkbox" name="sk" value="Design (Canva)"> Design (Canva)</label><label class="chk"><input type="checkbox" name="sk" value="Data analysis"> Data analysis</label></div>
+<input type="text" name="skx" aria-label="Other skills" placeholder="Other skills" maxlength="120" style="margin-top:4px"></div>
+<div class="fld"><span class="lb">Certificates</span><label class="chk"><input type="checkbox" name="nocert" value="1" id="nocert" checked> None yet. That is completely normal.</label>
+<textarea id="cert" name="cert" maxlength="300" placeholder="If you have any, list them here" hidden></textarea></div>
+<div class="fld"><label for="goal">Your goal in one line</label><input id="goal" name="goal" type="text" maxlength="160" placeholder="e.g. I want an internship in banking by next year"></div>
+</fieldset>
+
+<fieldset data-s="5" hidden><legend>Your permission</legend><p class="hint">Almost done.</p>
+<div class="box"><label class="chk" style="border:0;padding:0;margin:0;background:none"><input type="checkbox" name="consent" id="consent"> I agree that ValueBridge Network may use these details to prepare my LinkedIn profile and contact me about it.</label></div>
+<p class="err" id="e-consent" role="alert"></p>
+<p class="hint" style="margin-top:12px">We only ask for what is needed. Never send ID numbers, bank details or card details.</p>
+</fieldset>
+
+<p id="fail" class="err" role="alert"></p>
+<div class="nav"><button type="button" class="bk" id="bk" hidden>Back</button><button type="submit" class="go" id="go">Next</button></div>
+</form>
+</div>
+
+<section id="done" hidden>
+<h2 id="dt">Thank you</h2>
+<p>We have received your details.</p>
+<a class="btn wa" id="wa" href="#">Message Emmanuel on WhatsApp</a>
+<div class="box"><strong>What happens next</strong><ul><li>Emmanuel reviews your details.</li><li>He contacts you on WhatsApp to confirm your plan.</li><li>If you have any certificates, projects or contacts to add, you can send them then.</li></ul></div>
+</section>
+</main>
+<footer>Learn. Connect. Grow. Succeed.</footer>
+
+<script>
+/* ===== SET THESE THREE VALUES (see README). They are public-safe. ===== */
+var CFG={service:"service_udxkh8s",template:"template_ngf09wt",key:"Q7HsEfhXx4Iy1fZwv",
+tracker:"", /* optional: Apps Script web address from Tool 2 */
+wa:"233202367821"};
+/* ====================================================================== */
+var STORE="vbn-intake-v1",N=5,n=1,f=document.getElementById("f"),sending=false;
+var LAB=["About you","Education","Direction","Optional extras","Permission"];
+function q(s){return document.querySelector(s)}
+function all(s){return[].slice.call(f.querySelectorAll(s))}
+function v(k){var e=f.elements[k];return e?e.value.trim():""}
+function ticked(k){return all('input[name="'+k+'"]:checked').map(function(e){return e.value})}
+function key(e){return e.name+(e.type==="checkbox"?"|"+e.value:"")}
+function save(){try{var d={_s:n};all("[name]").forEach(function(e){if(e.name==="consent"||e.name==="website")return;d[key(e)]=e.type==="checkbox"?e.checked:e.value});localStorage.setItem(STORE,JSON.stringify(d))}catch(x){}}
+function load(){try{var d=JSON.parse(localStorage.getItem(STORE)||"null");if(!d)return;all("[name]").forEach(function(e){var k=key(e);if(!(k in d))return;if(e.type==="checkbox")e.checked=d[k];else e.value=d[k]});n=Math.min(Math.max(d._s||1,1),N-1)}catch(x){}}
+function show(){
+all("fieldset").forEach(function(s){s.hidden=+s.getAttribute("data-s")!==n});
+q("#bar i").style.width=(n*100/N)+"%";
+q("#stp").textContent="Step "+n+" of "+N+": "+LAB[n-1];
+q("#bk").hidden=n===1;q("#go").textContent=n===N?"Send my details":"Next";
+q("#noli").onchange();q("#nocert").onchange();
+window.scrollTo(0,0)}
+function bad(id,msg){var p=q("#e-"+id);if(p)p.textContent=msg;var e=f.elements[id];if(e&&e.setAttribute)e.setAttribute("aria-invalid","true");return msg?id:null}
+function clear(){all(".err").forEach(function(p){p.textContent=""});all("[aria-invalid]").forEach(function(e){e.removeAttribute("aria-invalid")})}
+function check(s){clear();var b=[];
+if(s===1){
+if(!v("title"))b.push(bad("title","Please choose Mr, Miss, Mrs or Dr."));
+if(v("name").split(/\s+/).length<2)b.push(bad("name","Please enter your full name: first name and surname."));
+if(!/^\+?\d{9,15}$/.test(v("phone").replace(/[\s-]/g,"")))b.push(bad("phone","Please enter a WhatsApp number with digits only, for example 0241234567."));
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v("email")))b.push(bad("email","Please enter a valid email address, for example name@gmail.com."));
+if(v("li")&&!/linkedin\.com\//i.test(v("li"))&&!q("#noli").checked)b.push(bad("li","That does not look like a LinkedIn link. It should look like linkedin.com/in/yourname. You can also leave it blank."));
+}
+if(s===2){
+if(!v("inst"))b.push(bad("inst","Please write the name of your institution."));
+if(!v("prog"))b.push(bad("prog","Please write your programme of study."));
+if(!v("level"))b.push(bad("level","Please choose your level."));
+}
+if(s===3&&!ticked("opp").length)b.push(bad("opp","Please tick at least one opportunity you want."));
+if(s===5&&!q("#consent").checked)b.push(bad("consent","Please tick the box to give your permission, so we can prepare your profile."));
+b=b.filter(Boolean);
+if(b.length){var e=f.elements[b[0]];if(!e||!e.focus)e=q("#opps input");e.focus()}
+return !b.length}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function data(){
+var li=q("#noli").checked?"No account yet":(v("li")||"Not given"),
+opp=ticked("opp"),sk=ticked("sk");if(v("skx"))sk.push(v("skx"));
+return{
+"Title":v("title"),"Full name":v("name"),"WhatsApp":v("phone"),"Email":v("email"),"LinkedIn":li,
+"Institution":v("inst"),"Programme":v("prog"),"Level":v("level"),
+"Dream companies":[v("co1"),v("co2"),v("co3")].filter(Boolean).join(", ")||"Not given",
+"Preferred roles":[v("ro1"),v("ro2"),v("ro3")].filter(Boolean).join(", ")||"Not given",
+"Opportunities wanted":opp.join(", "),
+"Leadership and groups":v("lead")||"Not given","Skills":sk.join(", ")||"Not given",
+"Certificates":q("#nocert").checked?"None yet":(v("cert")||"Not given"),
+"One-line goal":v("goal")||"Not given","Consent given":"Yes","Submitted":new Date().toLocaleString("en-GB")}}
+function html(d){var r="";for(var k in d)r+='<tr><td style="padding:8px 12px;background:#0B1F3A;color:#fff;font-weight:bold;vertical-align:top;width:34%">'+esc(k)+'</td><td style="padding:8px 12px;border-bottom:1px solid #ddd">'+esc(d[k])+"</td></tr>";
+return'<table style="border-collapse:collapse;width:100%;max-width:640px;font-family:Arial,sans-serif;font-size:15px">'+r+"</table>"}
+function text(d){var r="";for(var k in d)r+=k+": "+d[k]+"\n";return r}
+function finish(d){
+try{localStorage.removeItem(STORE)}catch(x){}
+var sn=d["Full name"].split(/\s+/).pop(),who=d["Title"]+" "+sn;
+q("#top").hidden=true;q("#done").hidden=false;
+q("#dt").textContent="Thank you, "+who+".";
+q("#wa").href="https://wa.me/"+CFG.wa+"?text="+encodeURIComponent("Good day. This is "+who+". I have just submitted my details on the ValueBridge Network form.");
+window.scrollTo(0,0)}
+function send(){
+if(sending)return;var d=data();
+if(v("website")){finish(d);return}
+if(CFG.key.indexOf("YOUR_")===0){q("#fail").textContent="This form is not connected to email yet. Emmanuel: please follow the README to add your EmailJS details.";return}
+sending=true;var g=q("#go");g.disabled=true;g.textContent="Sending…";q("#fail").textContent="";
+var c=window.AbortController?new AbortController():null,t=setTimeout(function(){if(c)c.abort()},25000);
+fetch("https://api.emailjs.com/api/v1.0/email/send",{method:"POST",headers:{"Content-Type":"application/json"},signal:c?c.signal:undefined,
+body:JSON.stringify({service_id:CFG.service,template_id:CFG.template,user_id:CFG.key,template_params:{from_name:d["Title"]+" "+d["Full name"],reply_to:d["Email"],message_html:html(d),message:text(d)}})})
+.then(function(r){if(!r.ok)throw 0;if(CFG.tracker){try{fetch(CFG.tracker,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)}).catch(function(){})}catch(x){}}finish(d)})
+.catch(function(){q("#fail").textContent="Your details were not sent, probably because of a weak connection. Nothing is lost. Check your data and press the button again.";g.disabled=false;g.textContent="Send my details";sending=false})
+.then(function(){clearTimeout(t)})}
+f.addEventListener("submit",function(e){e.preventDefault();if(!check(n))return;if(n<N){n++;save();show()}else send()});
+q("#bk").onclick=function(){clear();n--;save();show()};
+q("#noli").onchange=function(){var l=q("#li");l.disabled=this.checked;if(this.checked)l.value=""};
+q("#nocert").onchange=function(){q("#cert").hidden=this.checked};
+f.addEventListener("input",save);f.addEventListener("change",save);
+load();show();
+</script>
+</body>
+</html>
